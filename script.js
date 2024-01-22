@@ -11,20 +11,9 @@ let filterInputs = Array.from(document.querySelectorAll('.todo__filters input[ty
 let selectedFilter = document.querySelector('.todo__filters input[type="radio"]:checked').value;
 let itemsLeftEl = document.getElementById('items-left');
 let tasks = JSON.parse(localStorage.getItem('taskList')) ?? [];
+let darkTheme = localStorage.getItem('dark-theme');
 
-toggleThemeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    buttonIcon = document.querySelector('#toggle-theme img');
-
-    if(document.body.classList.contains('dark-theme')){
-        buttonIcon.src = "images/icon-sun.svg";
-        buttonIcon.alt = "light theme icon";
-    }
-    else{
-        buttonIcon.src = "images/icon-moon.svg";
-        buttonIcon.alt = "dark theme icon";
-    }
-});
+toggleThemeBtn.addEventListener('click', toggleTheme);
 
 filterInputs.forEach(input => {
     input.addEventListener('change', e => {
@@ -69,11 +58,31 @@ todoListEl.addEventListener('dragover', e => {
     todoListEl.insertBefore(draggingItem, nextSibling);
 });
 
-function showTasks(filter = selectedFilter){
-    cleanTasksHTML();
-    let filteredTasks;
+function getTheme(){
+    if(darkTheme == "true")
+        toggleTheme();
+}
 
-    switch(filter){
+function toggleTheme(){
+    document.body.classList.toggle('dark-theme');
+    buttonIcon = document.querySelector('#toggle-theme img');
+
+    if(document.body.classList.contains('dark-theme')){
+        buttonIcon.src = "images/icon-sun.svg";
+        buttonIcon.alt = "light theme icon";
+    }
+    else{
+        buttonIcon.src = "images/icon-moon.svg";
+        buttonIcon.alt = "dark theme icon";
+    }
+
+    localStorage.setItem('dark-theme', document.body.classList.contains('dark-theme'));
+}
+
+function filterTasks(){
+    let filteredTasks = [];
+
+    switch(selectedFilter){
         case 'all':
             filteredTasks = [...tasks];
             break;
@@ -85,7 +94,14 @@ function showTasks(filter = selectedFilter){
             break;
     }
 
+    return filteredTasks;
+}
+
+function showTasks(){
+    cleanTasksHTML();
     const taskListFragment = document.createDocumentFragment();
+
+    const filteredTasks = filterTasks();
 
     filteredTasks.forEach(task => {
         const taskItemEl = document.createElement('li');
@@ -145,4 +161,5 @@ function cleanTasksHTML(){
         todoListEl.lastElementChild.remove();
 }
 
+getTheme();
 showTasks();
