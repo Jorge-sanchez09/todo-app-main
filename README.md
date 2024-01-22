@@ -14,6 +14,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [Acknowledgements](#acknowledgements)
 
 ## Overview
 
@@ -37,7 +38,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://kriosaber.github.io/todo-app-main/)
+- Live Site URL: [Frontend Mentor | Todo app](https://jorge-sanchez09.github.io/todo-app-main/)
 
 ## My process
 
@@ -48,10 +49,13 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - JavaScript
+- DragDropTouch library
 
 ### What I learned
 
-During this challenge I remembered things about JavaScript Local Storage and Drag and Drop APIs, on which the main functionality of this project depended. The tasks sorting using Drag and Drop ended up a little buggy. I could have used a JS library for this since I found a few when I was looking for suggestions, but I wanted to give vanilla code a try first and see what I can improve
+During this challenge I remembered things about JavaScript Local Storage and Drag and Drop APIs, on which the main functionality of this project depended. 
+The tasks sorting using Drag and Drop ended up a little buggy, later, I discovered that it wasn't working on my phone because drag events are not supported on many mobile devices. I found a reliable Drag and Drop polyfill library that adds mobile support, allowing me to enable task sorting on mobile devices as well. 
+There was only a minor issue where the dragging task to not remove its .dragging class when touch was released, so I added an additional eventListener for the touchend event as well.
 
 ```js for the sorting
 todoListEl.addEventListener('dragover', e => {
@@ -68,13 +72,16 @@ todoListEl.addEventListener('dragover', e => {
 
 ### Continued development
 
-I'd like to learn more details about how to manipulate the DOM using coordinates, because it was useful to make the sorting with methods like getBoundingClientRect()
+I'd like to learn more details about how to manipulate the DOM using coordinates, because it was useful to make the sorting with methods like getBoundingClientRect(), also I think it would be beneficial to learn more about js libraries when stucked on a certain functionalities.
 
 
 ### Useful resources
 
 - [Draggable List in JavaScript](https://www.youtube.com/watch?v=9HUlUnM3UG8&t=669s) - At first I watched this video for the tasks sorting, but later I made some changes because it wasn't working well enough for me. However, it still serves as a good example of how to implement this functionality with minimal code
+- [DragDropTouch](https://github.com/Bernardo-Castilho/dragdroptouch) - I used this Drag and Drop polyfill library that provided the drag and drop mobile support, which made posible to sort the task items on mobile devices
 
 ## Author
-
 - Frontend Mentor - [@Jorge-sanchez09](https://www.frontendmentor.io/profile/Jorge-sanchez09)
+
+## Acknowledgements
+- [Bernardo Castilho](https://github.com/Bernardo-Castilho) - Owner of the Drag and Drop polyfill library
