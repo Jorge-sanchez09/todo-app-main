@@ -14,8 +14,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
 
 ## Overview
 
@@ -79,4 +77,4 @@ I'd like to learn more details about how to manipulate the DOM using coordinates
 
 ## Author
 
-- Frontend Mentor - [@Kriosaber](https://www.frontendmentor.io/profile/Kriosaber)
+- Frontend Mentor - [@Jorge-sanchez09](https://www.frontendmentor.io/profile/Jorge-sanchez09)
