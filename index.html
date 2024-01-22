@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Todo app</title>
+</head>
+<body>
+  <div class="main-container">	
+    <header>
+      <h1>Todo</h1>
+      <button id="toggle-theme">
+        <img src="images/icon-moon.svg" alt="dark theme icon">
+      </button>
+    </header>
+    <main class="todo">
+      <form class="todo__form" id="todo-form">
+        <input type="checkbox" name="completed">
+        <input type="text" class="todo__text-input" placeholder="Create a new todo..." name="new-task">
+      </form>
+      <div class="todo__bottom">
+        <ul class="todo__list">
+        
+        </ul>
+        <div class="todo__actions">
+          <p id="items-left">n items left</p>
+          <div class="todo__filters">
+            <div class="filter-group">
+              <label>
+                <input type="radio" class="filter-input" name="tasks-filter" value="all" checked>
+                <span>All</span>
+              </label>
+            </div>
+            <div class="filter-group">
+              <label>
+                <input type="radio" class="filter-input" name="tasks-filter" value="active">
+                <span>Active</span>
+              </label>
+            </div>
+            <div class="filter-group">
+              <label>
+                <input type="radio" class="filter-input" name="tasks-filter" value="completed">
+                <span>Completed</span>
+              </label>
+            </div>
+          </div>
+          <button id="clear-completed-btn">Clear Completed</button>
+        </div>
+      </div>
+    </main>
+    <footer>Drag and drop to reorder list</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
