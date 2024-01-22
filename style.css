@@ -87,6 +87,10 @@ h1{
     color: var(--clr-neutral-100);
 }
 
+#toggle-theme img{
+    pointer-events: none;
+}
+
 .todo{
     display: grid;
     gap: 1.25em;
@@ -189,12 +193,9 @@ input:-webkit-autofill:focus{
 }
 
 .task{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: 1.25em;
     padding: 1.1em 1.25em;
     border-bottom: 1px solid var(--clr-border);

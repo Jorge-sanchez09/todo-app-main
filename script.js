@@ -110,6 +110,7 @@ function showTasks(){
         taskItemEl.addEventListener('dragstart', () =>
             setTimeout(() => taskItemEl.classList.add('dragging'), 0));
         taskItemEl.addEventListener('dragend', () => taskItemEl.classList.remove('dragging'))
+        taskItemEl.addEventListener('touchend', () => taskItemEl.classList.remove('dragging'))
 
         const taskCheckbox = document.createElement('input');
         taskCheckbox.type = 'checkbox';
